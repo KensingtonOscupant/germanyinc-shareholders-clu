@@ -33,6 +33,12 @@ print("Press 'q' to quit the utility.")
 # Keep track of the current question index
 current_index = 0
 
+# Find the first empty company_id
+for i, row in enumerate(data):
+    if row["company_id"] == "":
+        current_index = i
+        break
+
 while current_index < len(data):
     row = data[current_index]
     target_string = row["target_string"]
