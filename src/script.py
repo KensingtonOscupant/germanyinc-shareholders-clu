@@ -27,29 +27,41 @@ print("Welcome to the company matching utility!")
 print("Press 'n' if the two strings are not the same company.")
 print("Press '1' if the first string is the correct spelling.")
 print("Press '2' if the second string is the correct spelling.")
+print("Press 'b' to go back to the previous question.")
 print("Press 'q' to quit the utility.")
 
-# Iterate through the data
-for row in data:
+# Keep track of the current question index
+current_index = 0
+
+while current_index < len(data):
+    row = data[current_index]
     target_string = row["target_string"]
     matched_string = row["matched_string"]
+    company_id = row.get("company_id", "")
 
     # Print a newline for spacing
     print("\n")
 
     # Print the strings and ask the user for input
-    print("1:", target_string)
-    print("2:", matched_string)
-    print("Are these the same company? (n/1/2/q)")
+    print("Target:", target_string)
+    print("Matched:", matched_string)
+    print("Company ID:", company_id)
+    print("Are these the same company? (n/1/2/b/q)")
 
     while True:
         user_input = getch().lower()
         if user_input in ["n", "1", "2"]:
             break
+        elif user_input == "b":
+            if current_index > 0:
+                current_index -= 2
+                break
+            else:
+                print("Cannot go back, already at the first question.")
         elif user_input == "q":
             sys.exit("Exit the script")
         else:
-            print("Invalid input. Please enter 'n', '1', '2' or 'q'")
+            print("Invalid input. Please enter 'n', '1', '2', 'b' or 'q'")
 
     # Update the company_id based on the user input
     if user_input == "n":
@@ -57,11 +69,12 @@ for row in data:
     elif user_input in ["1", "2"]:
         row["company_id"] = str(next_id)
         next_id += 1
-    
+
+    current_index += 1
     # Write the updated data to the CSV file
     with open("data/sample_data.csv", "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=reader.fieldnames)
         writer.writeheader()
         writer.writerows(data)
-        
+
     print("Data written to file.")
