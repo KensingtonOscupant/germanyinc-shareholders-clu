@@ -27,6 +27,7 @@ print("Welcome to the company matching utility!")
 print("Press 'n' if the two strings are not the same company.")
 print("Press '1' if the first string is the correct spelling.")
 print("Press '2' if the second string is the correct spelling.")
+print("Press 'u' if you are not sure about the match.")
 print("Press 'b' to go back to the previous question.")
 print("Press 'q' to quit the utility.")
 
@@ -52,7 +53,7 @@ while current_index < len(data):
     print("Target:", target_string)
     print("Matched:", matched_string)
     print("Company ID:", company_id)
-    print("Are these the same company? (n/1/2/b/q)")
+    print("Are these the same company? (n/1/2/u/b/q)")
 
     while True:
         user_input = getch().lower()
@@ -64,10 +65,13 @@ while current_index < len(data):
                 break
             else:
                 print("Cannot go back, already at the first question.")
+        elif user_input == "u":
+            row["company_id"] = "-1"
+            break
         elif user_input == "q":
             sys.exit("Exit the script")
         else:
-            print("Invalid input. Please enter 'n', '1', '2', 'b' or 'q'")
+            print("Invalid input. Please enter 'n', '1', '2', 'b', 'u', or 'q'")
 
     # Update the company_id based on the user input
     if user_input == "n":
