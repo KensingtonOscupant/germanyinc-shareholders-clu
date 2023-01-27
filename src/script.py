@@ -22,14 +22,24 @@ with open("data/sample_data.csv", "r") as csvfile:
 # Initialize a variable to store the next unique ID
 next_id = 1
 
+# Print a welcome message
+print("Welcome to the company matching utility!")
+print("Press 'n' if the two strings are not the same company.")
+print("Press '1' if the first string is the correct spelling.")
+print("Press '2' if the second string is the correct spelling.")
+print("Press 'q' to quit the utility.")
+
 # Iterate through the data
 for row in data:
     target_string = row["target_string"]
     matched_string = row["matched_string"]
 
+    # Print a newline for spacing
+    print("\n")
+
     # Print the strings and ask the user for input
-    print("Target:", target_string)
-    print("Matched:", matched_string)
+    print("1:", target_string)
+    print("2:", matched_string)
     print("Are these the same company? (n/1/2/q)")
 
     while True:
@@ -55,4 +65,3 @@ for row in data:
         writer.writerows(data)
         
     print("Data written to file.")
-
