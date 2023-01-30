@@ -7,7 +7,7 @@
 4. [Data](#data)
 
 ## Introduction
-This tool is made for a research project on shareholders of publicly traded companies, context of usage can be found at the end of (this notebook)[https://github.com/KensingtonOscupant/germanyinc-shareholders/blob/main/src/exploration.ipynb]. The tool allows the user to match and categorize companies based on a set of target and matched strings. The tool is designed to be run in a terminal and operates on a CSV file that contains the target and matched strings. The tool will then prompt the user to match the target and matched strings by assigning a unique ID to each set of matching companies.
+This tool is made for a research project on shareholders of publicly traded companies, context of usage can be found at the end of [this notebook](https://github.com/KensingtonOscupant/germanyinc-shareholders/blob/main/src/exploration.ipynb). The tool allows the user to match and categorize companies based on a set of target and matched strings. The tool is designed to be run in a terminal and operates on a CSV file that contains the target and matched strings. The tool will then prompt the user to match the target and matched strings by assigning a unique ID to each set of matching companies.
 
 ## How it Works
 The tool uses the Python standard library to accomplish its task. It reads the contents of a CSV file and prompts the user to match the target and matched strings. The user inputs their match decision by typing one of the following keys: 'n', '1', '2', 'u', 'b', or 'q'.
