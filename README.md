@@ -26,3 +26,16 @@ The tool then updates the CSV file with the user's match decision and moves on t
 3. Run the following command in the terminal:
 
 `python3 company_matching_utility.py`
+
+![Screenshot 2023-01-27 at 17 55 35](https://user-images.githubusercontent.com/99140162/215615052-71073048-ca90-4ece-877d-c5feda964774.png)
+
+4. The tool will start and prompt the user for input as described in the "How it Works" section.
+
+## Data
+The tool operates on a CSV file that contains the target and matched strings, and an optional column for the company ID. A sample data file has been provided, but any CSV file in the same format can be used. The file should contain the following columns:
+- `target_index`
+- `target_string`
+- `match_index`
+- `matched_string`
+- `company_id`
+
