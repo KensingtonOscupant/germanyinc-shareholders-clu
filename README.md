@@ -25,4 +25,4 @@ The tool then updates the CSV file with the user's match decision and moves on t
 2. Download the code for this tool.
 3. Run the following command in the terminal:
 
-`python3 company_matching_utility.py
+`python3 company_matching_utility.py`
